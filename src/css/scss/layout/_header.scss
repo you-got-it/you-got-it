@@ -11,8 +11,11 @@
     .content-hidden & {
         opacity: 0;
     }
+    .article-opening & {
+        opacity: 0;
+    }
     .article-opened & {
-        animation: .6s $easing onArticleOpened forwards;
+        opacity: 1;
     }
 
     &_link {

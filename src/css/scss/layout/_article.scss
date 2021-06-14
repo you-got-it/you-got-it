@@ -13,7 +13,7 @@
 
 .article {
     background-color: $cBlue;
-    padding: 20px 0;
+    padding: 20px 0 40px;
     margin: 0 0 10px;
     position: relative;
     box-sizing: border-box;
@@ -61,14 +61,9 @@
         }
     }
     .article-opened &.opened + & {
-        animation: 2s linear showNextArticle forwards;
+        display: block;
+        animation: 1s linear showNextArticle forwards;
         opacity: 0;
-        max-height: 300px;
-        padding: 20px 0;
-        @include tablet {
-            padding-top: 70px;
-            padding-bottom: 60px;
-        }
     }
 
     &_header {
@@ -136,13 +131,14 @@
     }
     &_duration {
         display: inline-block;
-        max-height: 24px;
         white-space: nowrap;
-        transition: .2s $easing opacity .5s,
-                    .1s $easing max-height .6s;
+        pointer-events: none;
+        position: absolute;
+        left: $indent;
+        top: 100%;
+        transition: .2s $easing opacity .5s;
 
         .opened & {
-            max-height: 0;
             opacity: 0;
         }
     }

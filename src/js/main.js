@@ -6,7 +6,7 @@ setTimeout(() => {
 setTimeout(() => {
     document.body.classList.remove(showIntroClassName);
     document.body.classList.remove('content-hidden');
-}, 3500);
+}, 30);
 
 /* navigation */
 let openedArticle = 0;
@@ -27,14 +27,13 @@ function openArticle() {
     const target = document.querySelector(`.article[data-article="${openedArticle}"]`);
 
     const root = document.documentElement;
-    const contentPosition = Math.round(document.querySelector('.content').getBoundingClientRect().y);
     const targetPosition = Math.round(target.getBoundingClientRect().y);
     target.classList.add('opened');
 
     setTimeout(() => {
         window.scrollTo(0, 0);
         
-        root.style.setProperty('--articleTranslateY', `${targetPosition - contentPosition}px`);
+        root.style.setProperty('--articleTranslateY', `${targetPosition - 200}px`);
 
         document.body.classList.remove('article-opening');
         document.body.classList.add('article-opened');
@@ -42,12 +41,10 @@ function openArticle() {
         setTimeout(() => {
             root.style.setProperty('--articleTranslateDuration', '.5s');
             root.style.setProperty('--articleTranslateY', '0');
-        }, 10);
+        }, 20);
     }, 350);
 
     
-
-
 
     saveOpenedArticle();
 }
