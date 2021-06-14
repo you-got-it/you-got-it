@@ -10,7 +10,7 @@ body {
     letter-spacing: -0.03em;
     padding: 54px $indent 40px;
     scroll-behavior: smooth;
-    transition: .2s $easing opacity;
+    transition: .3s $easing opacity;
     @include tablet {
         font-size: $font-size__big;
         margin: auto;
@@ -64,4 +64,7 @@ ul {
 }
 .article-opening {
     pointer-events: none;
+}
+.article-closing {
+    opacity: 0;
 }
