@@ -1,0 +1,9 @@
+.progress {
+    background: url(#{$img}/arrow-down.svg) no-repeat center center;
+    background-size: 14px 30px;
+
+    &_image {
+        transform-origin: center;
+        transform: rotate(-90deg);
+    }
+}

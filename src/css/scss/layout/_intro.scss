@@ -1,0 +1,81 @@
+.intro {
+    //display: none !important;
+
+    position: fixed;
+    background: $cDark;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 10;
+    animation: 4.5s $easing showAndHide forwards;
+    transition: .2s $easing opacity;
+
+    .intro-playing & {
+        pointer-events: all;
+    }
+
+    &_text {
+        font-size: 16px;
+        perspective: 50px;
+        perspective-origin: center center;
+        transform-origin: center center;
+        opacity: 1;
+        @include tablet {
+            font-size: 30px;
+        }
+
+        .intro-playing & {
+            opacity: 1;
+        }
+
+        span {
+            display: inline-block;
+            opacity: 0;
+            transform: rotate3d(1, 0, 0, -18deg);
+
+            @for $i from 1 to 50 {
+                .intro-playing &:nth-child(#{$i}) {
+                    animation: 2s $easing showLetters #{$i / 40}s forwards;
+                }
+            }
+        }
+    }
+    &_bright {
+        color: $cBlue;
+    }
+}
+
+@keyframes showLetters {
+    0% {
+        opacity: 0;
+        transform: rotate3d(1, 0, 0, -12deg);
+    }
+    5% {
+        opacity: 1;
+        transform: rotate3d(1, 0, 0, 0deg);
+    }
+    95% {
+        opacity: 1;
+        transform: rotate3d(1, 0, 0, 0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate3d(1, 0, 0, -12deg);
+    }
+}
+@keyframes showAndHide {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

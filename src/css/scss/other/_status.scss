@@ -1,0 +1,52 @@
+.status {
+    position: relative;
+    overflow: hidden;
+    margin: 0 0 50px;
+    transition: .3s $easing opacity;
+    @include tablet {
+        padding: 0 70px;
+        margin-bottom: 150px;
+    }
+
+    .article-opening & {
+        opacity: 0;
+    }
+    .article-opened & {
+        display: none;
+    }
+
+    &_title {
+        margin: 0 0 40px;
+        @include tablet {
+            width: 333px;
+        }
+    }
+    &_top {
+        margin: 0 0 50px;
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    &_description {
+        @include tablet {
+            width: 460px;
+        }
+    }
+    &_progress {
+        display: flex;
+        align-items: center;
+    }
+    &_progress-text {
+        margin: 0 0 0 30px;
+    }
+}
+
+@keyframes collapsing {
+    0% {
+        max-height: 500px;
+    }
+    100% {
+        max-height: 0;
+    }
+}

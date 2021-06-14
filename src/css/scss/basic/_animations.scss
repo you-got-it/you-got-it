@@ -1,0 +1,14 @@
+@keyframes onArticleOpened {
+    0% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

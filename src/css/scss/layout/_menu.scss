@@ -1,0 +1,20 @@
+.menu {
+    margin: 0 0 42px;
+    position: relative;
+    @include tablet {
+        width: 50%;
+        order: 3;
+    }
+
+    &_link {
+        color: #fff;
+        font-size: 23px;
+        display: block;
+        margin: 0 0 15px;
+        text-align: center;
+        @include tablet {
+            color: $color;
+            text-align: left;
+        }
+    }
+}

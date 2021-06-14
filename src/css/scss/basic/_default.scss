@@ -1,0 +1,64 @@
+html,
+body {
+    position: relative;
+}
+
+body {
+    background: $cDark;
+    color: $color;
+    font: #{$font-size}/#{1.1} $font-family;
+    letter-spacing: -0.03em;
+    padding: 54px $indent 40px;
+    scroll-behavior: smooth;
+    transition: .2s $easing opacity;
+    @include tablet {
+        font-size: $font-size__big;
+        margin: auto;
+        padding: 54px 20px 40px;
+    }
+}
+
+a {
+    color: $color;
+    text-decoration: underline;
+    transition: .2s $easing opacity;
+
+    &:hover,
+    &.hover {
+        opacity: .6;
+        outline: none;
+    }
+    &:active,
+    &.active {
+        opacity: .8;
+        outline: none;
+    }
+}
+
+p {
+    margin: 0 0 20px;
+    @include tablet {
+        margin-bottom: 30px;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+button,
+input,
+textarea {
+    &:focus {
+        outline: none;
+    }
+}
+
+ol,
+ul {
+    padding: 0 0 0 20px;
+}
+
+.popup-opened {
+    overflow: hidden;
+}

@@ -1,0 +1,30 @@
+.popup {
+    background: $cBlue;
+    position: relative;
+    max-width: 335px;
+
+    &_close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        background: url(#{$img}/close.svg) no-repeat center center;
+        height: 25px;
+        width: 25px;
+        padding: 0;
+    }
+    &_content {
+        padding: 90px 44px 60px;
+    }
+    &_footer {
+        background-color: rgba($cDark, .2);
+        padding: 0 22px;
+        min-height: 84px;
+        display: flex;
+        align-items: center;
+
+        img {
+            margin: -7px 5px 0;
+            vertical-align: middle;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+@mixin heading-1 {
+    font-size: 46px;
+    font-weight: normal;
+    margin: 0 0 30px;
+    @include tablet {
+        font-size: 90px;
+        margin-bottom: 80px;
+    }
+}
+@mixin heading-2 {
+    font-size: 30px;
+    font-weight: normal;
+    margin: 0 0 20px;
+}
+@mixin heading-3 {
+    font-size: 30px;
+    font-weight: normal;
+    margin: 0 0 30px;
+    @include tablet {
+        font-size: 46px;
+    }
+}
+
+h1,
+.heading-1{
+    @include heading-1;
+}
+h2,
+.heading-2 {
+    @include heading-3;
+    @include tablet {
+        @include heading-2;
+    }
+}
+h3,
+.heading-3 {
+    @include heading-3;
+}

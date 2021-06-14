@@ -1,0 +1,26 @@
+.share {
+    @include tablet {
+        text-align: right;
+    }
+
+    &_title {
+        display: block;
+        margin: 0 0 13px;
+        @include tablet {
+            margin-bottom: 20px;
+        }
+    }
+    &_item {
+        margin: 0 0 10px;
+        @include tablet {
+            margin-bottom: 15px;
+        }
+    }
+    &_link {
+        font-size: 21px;
+        text-decoration: underline;
+        @include tablet {
+            font-size: 30px;
+        }
+    }
+}

@@ -1,0 +1,59 @@
+.footer {
+    padding: $indent;
+    transition: .5s $easing opacity 2s;
+    @include tablet {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin: auto;
+    }
+
+    .content-hidden & {
+        opacity: 0;
+    }
+    .article-opening & {
+        opacity: 0;
+    }
+    .article-opened & {
+        animation: 1s $easing onArticleOpened forwards;
+    }
+
+    &_contacts {
+        margin: 0 0 40px;
+    }
+    &_contacts-title {
+        display: block;
+        font-size: 46px;
+        margin: 0 0 25px;
+    }
+    &_contacts-line {
+        font-size: 21px;
+        margin: 0 0 5px;
+        @include tablet {
+            font-size: 30px;
+        }
+
+        &__indent {
+            margin: 0 0 30px;
+        }
+    }
+    &_link {
+        font-size: 21px;
+        @include tablet {
+            font-size: 30px;
+        }
+
+        &[href^="mailto"] {
+            text-decoration: underline;
+        }
+    }
+    &_copyrights {
+        font-size: 18px;
+        margin: 40px 0 0;
+        width: 200px;
+        @include tablet {
+            margin-top: 30px;
+            width: auto;
+        }
+    }
+}
