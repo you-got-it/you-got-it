@@ -8,7 +8,7 @@ setTimeout(() => {
 setTimeout(() => {
     document.body.classList.remove(showIntroClassName);
     document.body.classList.remove('content-hidden');
-}, 30);
+}, 3500);
 
 /* navigation */
 let openedArticle = 0;
