@@ -1,7 +1,7 @@
 .popup {
     background: $cBlue;
     position: relative;
-    max-width: 335px;
+    max-width: 345px;
 
     &_close {
         position: absolute;
@@ -12,8 +12,12 @@
         width: 25px;
         padding: 0;
     }
+    &_title {
+        font-size: 90px;
+        margin: 0 0 6px;
+    }
     &_content {
-        padding: 90px 44px 60px;
+        padding: 65px 44px 60px;
     }
     &_footer {
         background-color: rgba($cDark, .2);
@@ -21,6 +25,7 @@
         min-height: 84px;
         display: flex;
         align-items: center;
+        white-space: nowrap;
 
         img {
             margin: -7px 5px 0;
