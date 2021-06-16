@@ -21,9 +21,9 @@
 
     &_text {
         font-size: 16px;
-        perspective: 50px;
-        perspective-origin: center center;
-        transform-origin: center center;
+        perspective: 250px;
+        position: relative;
+        perspective-origin: center bottom;
         opacity: 1;
         @include tablet {
             font-size: 30px;
@@ -36,13 +36,41 @@
         span {
             display: inline-block;
             opacity: 0;
-            transform: rotate3d(1, 0, 0, -18deg);
+            transform-origin: center center;
+            transform: rotateX(-45deg);
 
             @for $i from 1 to 50 {
                 .intro-playing &:nth-child(#{$i}) {
-                    animation: 2s $easing showLetters #{$i / 40}s forwards;
+                    animation: 2s $easing showLetters #{$i / 50}s forwards;
                 }
             }
+        }
+
+        &::before {
+            content: '';
+            background: $cDark;
+            box-shadow: -13px 0 20px 2px $cDark;
+            position: absolute;
+            left: 30px;
+            top: -10px;
+            bottom: -10px;
+            width: 20px;
+            transform: skewX(20deg);
+            animation: 1.2s linear flightBefore .18s forwards;
+            z-index: 1;
+        }
+        &::after {
+            content: '';
+            background: $cDark;
+            box-shadow: 13px 0 20px 2px $cDark;
+            position: absolute;
+            right: calc(100% + 40px);
+            top: -10px;
+            bottom: -10px;
+            width: 30px;
+            transform: skewX(-20deg);
+            animation: 1s linear flightAfter 2.18s forwards;
+            z-index: 1;
         }
     }
     &_bright {
@@ -53,19 +81,25 @@
 @keyframes showLetters {
     0% {
         opacity: 0;
-        transform: rotate3d(1, 0, 0, -12deg);
+        transform: rotateX(-45deg);
+    }
+    3% {
+        opacity: 1;
     }
     5% {
         opacity: 1;
-        transform: rotate3d(1, 0, 0, 0deg);
+        transform: rotateX(0deg);
     }
     95% {
         opacity: 1;
-        transform: rotate3d(1, 0, 0, 0deg);
+        transform: rotateX(0deg);
+    }
+    97% {
+        opacity: 1;
     }
     100% {
         opacity: 0;
-        transform: rotate3d(1, 0, 0, -12deg);
+        transform: rotateX(-45deg);
     }
 }
 @keyframes showAndHide {
@@ -77,5 +111,21 @@
     }
     100% {
         opacity: 0;
+    }
+}
+@keyframes flightBefore {
+    from {
+        transform: skewX(20deg) translate(0);
+    }
+    to {
+        transform: skewX(20deg) translate(600px);
+    }
+}
+@keyframes flightAfter {
+    from {
+        transform: skewX(-20deg) translate(0);
+    }
+    to {
+        transform: skewX(-20deg) translate(600px);
     }
 }
