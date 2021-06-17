@@ -2,6 +2,9 @@
     background: $cBlue;
     position: relative;
     max-width: 345px;
+    @include tablet {
+        max-width: 380px;
+    }
 
     &_close {
         position: absolute;

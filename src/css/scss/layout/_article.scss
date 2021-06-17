@@ -186,6 +186,7 @@
         padding: 0 $indent 0 80px;
         max-height: 0;
         overflow: hidden;
+        opacity: 0;
         @include tablet {
             padding: 0 230px 0 45%;
         }
@@ -193,6 +194,7 @@
         .opened & {
             padding: 50px $indent 0 80px;
             max-height: 5000px;
+            opacity: 1;
             @include tablet {
                 padding: 50px 50px 0 45%;
             }
@@ -203,7 +205,8 @@
         .article-opened &,
         .article-opening & {
             transition: .6s $easing padding .5s,
-                        .6s $easing max-height .5s;
+                        .6s $easing max-height .5s,
+                        .6s $easing opacity .7s;
         }
 
         .heading-1 {

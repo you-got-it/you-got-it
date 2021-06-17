@@ -1,4 +1,6 @@
+
 .intro {
+    --text-width: 300px;
     //display: none !important;
 
     position: fixed;
@@ -14,6 +16,9 @@
     z-index: 11;
     animation: 4.5s $easing showAndHide forwards;
     transition: .2s $easing opacity;
+    @include tablet {
+        --text-width: 600px;
+    }
 
     .intro-playing & {
         pointer-events: all;
@@ -46,31 +51,35 @@
             }
         }
 
-        &::before {
-            content: '';
-            background: $cDark;
-            box-shadow: -13px 0 20px 2px $cDark;
-            position: absolute;
-            left: 30px;
-            top: -10px;
-            bottom: -10px;
-            width: 20px;
-            transform: skewX(20deg);
-            animation: 1.2s linear flightBefore .18s forwards;
-            z-index: 1;
-        }
+        &::before,
         &::after {
             content: '';
             background: $cDark;
-            box-shadow: 13px 0 20px 2px $cDark;
             position: absolute;
-            right: calc(100% + 40px);
             top: -10px;
-            bottom: -10px;
-            width: 30px;
-            transform: skewX(-20deg);
-            animation: 1s linear flightAfter 2.18s forwards;
             z-index: 1;
+        }
+        &::before {
+            box-shadow: -13px 0 20px 2px $cDark;
+            left: 30px;
+            bottom: -10px;
+            width: 20px;
+            transform: skewX(20deg);
+            animation: 1.2s linear flightBefore .22s forwards;
+            @include tablet {
+                animation-delay: .18s;
+            }
+        }
+        &::after {
+            box-shadow: 13px 0 20px 2px $cDark;
+            right: calc(100% + 40px);
+            bottom: -10px;
+            width: 100px;
+            transform: skewX(-20deg);
+            animation: .8s linear flightAfter 2.18s forwards;
+            @include tablet {
+                animation-duration: 1s;
+            }
         }
     }
     &_bright {
@@ -118,7 +127,7 @@
         transform: skewX(20deg) translate(0);
     }
     to {
-        transform: skewX(20deg) translate(600px);
+        transform: skewX(20deg) translate(var(--text-width));
     }
 }
 @keyframes flightAfter {
@@ -126,6 +135,6 @@
         transform: skewX(-20deg) translate(0);
     }
     to {
-        transform: skewX(-20deg) translate(600px);
+        transform: skewX(-20deg) translate(var(--text-width));
     }
 }
